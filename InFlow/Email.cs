@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Mail;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace InFlow
 {
@@ -29,18 +30,24 @@ namespace InFlow
 
         public void EmailClient(string ClientEmail, string Subject, string EmailBody)
         {
+
             try
-            {                
+            {
+                new Thread(() =>
+                {
+                    Thread.CurrentThread.IsBackground = true;
+                    MailMessage mm = new MailMessage("donotreply@theprimebaby.com", ClientEmail, Subject, EmailBody);
+                    mm.BodyEncoding = UTF8Encoding.UTF8;
+                    mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
 
-                MailMessage mm = new MailMessage("donotreply@theprimebaby.com", ClientEmail, Subject, EmailBody);
-                mm.BodyEncoding = UTF8Encoding.UTF8;
-                mm.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
-
-                client.Send(mm);
+                    client.Send(mm);
+                }).Start();
+                
             }
             catch (Exception ex)
             {
-                MessageBox.Show("" + ex);
+                Logging.NewLog("EmailClient", "Error sending email\n" + ex);
+                return;
             }
         }
 

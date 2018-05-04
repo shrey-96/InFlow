@@ -40,6 +40,7 @@ namespace InFlow
         {
             bool success = true;
             bool userexist = false;
+            bool validemail = true;
             string error_msg = "";
 
             string firstname = ui.box_firstname.Text;
@@ -70,8 +71,24 @@ namespace InFlow
 
             // valdate email id
             if ((error_msg = validation.ValidateEmail(email)) != "")
+            {
+                validemail = false;
                 success = false;
+            }
             validation.Error(ui.box_emailid, error_msg);
+
+            // check if email id is already taken by someone
+            if(validemail)
+            {
+                string msg = "";
+                if (CheckEmailExistence(email))
+                {
+                    msg = "This email id already exist";
+                    success = false;
+                }
+
+                validation.Error(ui.box_emailid, msg);
+            }
 
 
             // validate username field and make sure it does not exist
@@ -91,7 +108,7 @@ namespace InFlow
 
 
             // validate password field
-            if ((error_msg = validation.IsNotBlank(password, true)) != "")
+            if ((error_msg = validation.validatePasswordCriteria(password)) != "")
                 success = false;
             validation.Error(ui.box_selectpassword, error_msg);
 
@@ -102,12 +119,31 @@ namespace InFlow
                 success = db.AddNewUser(username, password, firstname, lastname, phone, email);
                 if (success == false)
                     MessageBox.Show("Error while adding patient. Try again.");
-                else
+                else                
                     ui.box_hiddenEmail.Text = email;
             }
 
 
             return success;
+        }
+
+        // check if email exist in the database
+        private bool CheckEmailExistence(string email)
+        {
+            bool exist = false;
+            string query = "select email from userinfo where email = '" + email + "'";
+            string result = db.GetColumnData(query, "email");
+
+            if (result != "")
+                exist = true;
+
+            return exist;
+        }
+
+        public void verified(string email)
+        {
+            string query = "update userinfo set verified = 1 where email = '" + email + "'";
+            db.SetData(query);
         }
     }
 }

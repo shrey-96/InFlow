@@ -57,6 +57,9 @@
             this.label14 = new System.Windows.Forms.Label();
             this.Label_ResendOTP = new System.Windows.Forms.Label();
             this.box_hiddenEmail = new System.Windows.Forms.TextBox();
+            this.box_hiddenOTP = new System.Windows.Forms.TextBox();
+            this.Label_LoginError = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.Panel_Login.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ep)).BeginInit();
             this.Panel_Signup.SuspendLayout();
@@ -66,6 +69,7 @@
             // Panel_Login
             // 
             this.Panel_Login.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Panel_Login.Controls.Add(this.Label_LoginError);
             this.Panel_Login.Controls.Add(this.btn_signup);
             this.Panel_Login.Controls.Add(this.btn_login);
             this.Panel_Login.Controls.Add(this.box_password);
@@ -82,7 +86,7 @@
             // 
             this.btn_signup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btn_signup.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_signup.Location = new System.Drawing.Point(144, 424);
+            this.btn_signup.Location = new System.Drawing.Point(144, 450);
             this.btn_signup.Name = "btn_signup";
             this.btn_signup.Size = new System.Drawing.Size(384, 55);
             this.btn_signup.TabIndex = 6;
@@ -94,7 +98,7 @@
             // 
             this.btn_login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btn_login.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_login.Location = new System.Drawing.Point(144, 323);
+            this.btn_login.Location = new System.Drawing.Point(144, 349);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(384, 55);
             this.btn_login.TabIndex = 5;
@@ -171,18 +175,18 @@
             // box_selectusername
             // 
             this.box_selectusername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.box_selectusername.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.box_selectusername.Location = new System.Drawing.Point(281, 329);
+            this.box_selectusername.Font = new System.Drawing.Font("Bahnschrift", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.box_selectusername.Location = new System.Drawing.Point(223, 325);
             this.box_selectusername.Name = "box_selectusername";
-            this.box_selectusername.Size = new System.Drawing.Size(256, 30);
-            this.box_selectusername.TabIndex = 20;
+            this.box_selectusername.Size = new System.Drawing.Size(345, 29);
+            this.box_selectusername.TabIndex = 13;
             this.box_selectusername.TextChanged += new System.EventHandler(this.username_availability);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(124, 336);
+            this.label8.Location = new System.Drawing.Point(66, 332);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(119, 23);
             this.label8.TabIndex = 19;
@@ -192,17 +196,18 @@
             // 
             this.box_selectpassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.box_selectpassword.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.box_selectpassword.Location = new System.Drawing.Point(281, 388);
+            this.box_selectpassword.Location = new System.Drawing.Point(223, 384);
+            this.box_selectpassword.MaxLength = 30;
             this.box_selectpassword.Name = "box_selectpassword";
             this.box_selectpassword.PasswordChar = '*';
-            this.box_selectpassword.Size = new System.Drawing.Size(256, 30);
-            this.box_selectpassword.TabIndex = 18;
+            this.box_selectpassword.Size = new System.Drawing.Size(345, 30);
+            this.box_selectpassword.TabIndex = 14;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(119, 395);
+            this.label7.Location = new System.Drawing.Point(61, 391);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(122, 23);
             this.label7.TabIndex = 17;
@@ -211,26 +216,26 @@
             // box_emailid
             // 
             this.box_emailid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.box_emailid.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.box_emailid.Location = new System.Drawing.Point(281, 270);
+            this.box_emailid.Font = new System.Drawing.Font("Bahnschrift", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.box_emailid.Location = new System.Drawing.Point(223, 266);
             this.box_emailid.Name = "box_emailid";
-            this.box_emailid.Size = new System.Drawing.Size(256, 30);
-            this.box_emailid.TabIndex = 16;
+            this.box_emailid.Size = new System.Drawing.Size(345, 29);
+            this.box_emailid.TabIndex = 12;
             // 
             // box_phone
             // 
             this.box_phone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.box_phone.Font = new System.Drawing.Font("Bahnschrift", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.box_phone.Location = new System.Drawing.Point(281, 212);
+            this.box_phone.Location = new System.Drawing.Point(223, 208);
             this.box_phone.Name = "box_phone";
-            this.box_phone.Size = new System.Drawing.Size(256, 29);
-            this.box_phone.TabIndex = 15;
+            this.box_phone.Size = new System.Drawing.Size(345, 29);
+            this.box_phone.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(167, 277);
+            this.label5.Location = new System.Drawing.Point(109, 273);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 23);
             this.label5.TabIndex = 14;
@@ -240,7 +245,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(159, 218);
+            this.label6.Location = new System.Drawing.Point(101, 214);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 23);
             this.label6.TabIndex = 13;
@@ -253,7 +258,7 @@
             this.Btn_RegisterUser.Location = new System.Drawing.Point(144, 498);
             this.Btn_RegisterUser.Name = "Btn_RegisterUser";
             this.Btn_RegisterUser.Size = new System.Drawing.Size(384, 55);
-            this.Btn_RegisterUser.TabIndex = 12;
+            this.Btn_RegisterUser.TabIndex = 15;
             this.Btn_RegisterUser.Text = "SIGN UP";
             this.Btn_RegisterUser.UseVisualStyleBackColor = false;
             this.Btn_RegisterUser.Click += new System.EventHandler(this.Btn_RegisterUser_Click);
@@ -261,26 +266,26 @@
             // box_lastname
             // 
             this.box_lastname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.box_lastname.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.box_lastname.Location = new System.Drawing.Point(281, 153);
+            this.box_lastname.Font = new System.Drawing.Font("Bahnschrift", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.box_lastname.Location = new System.Drawing.Point(223, 149);
             this.box_lastname.Name = "box_lastname";
-            this.box_lastname.Size = new System.Drawing.Size(256, 30);
+            this.box_lastname.Size = new System.Drawing.Size(345, 29);
             this.box_lastname.TabIndex = 10;
             // 
             // box_firstname
             // 
             this.box_firstname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.box_firstname.Font = new System.Drawing.Font("Bahnschrift", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.box_firstname.Location = new System.Drawing.Point(281, 95);
+            this.box_firstname.Location = new System.Drawing.Point(223, 91);
             this.box_firstname.Name = "box_firstname";
-            this.box_firstname.Size = new System.Drawing.Size(256, 29);
+            this.box_firstname.Size = new System.Drawing.Size(345, 29);
             this.box_firstname.TabIndex = 9;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(124, 160);
+            this.label3.Location = new System.Drawing.Point(66, 156);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(120, 23);
             this.label3.TabIndex = 8;
@@ -290,7 +295,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(124, 101);
+            this.label4.Location = new System.Drawing.Point(66, 97);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(123, 23);
             this.label4.TabIndex = 7;
@@ -298,6 +303,8 @@
             // 
             // Panel_OTP
             // 
+            this.Panel_OTP.Controls.Add(this.label9);
+            this.Panel_OTP.Controls.Add(this.box_hiddenOTP);
             this.Panel_OTP.Controls.Add(this.box_hiddenEmail);
             this.Panel_OTP.Controls.Add(this.Label_ResendOTP);
             this.Panel_OTP.Controls.Add(this.Btn_ConfirmOTP);
@@ -319,12 +326,14 @@
             this.Btn_ConfirmOTP.TabIndex = 25;
             this.Btn_ConfirmOTP.Text = "Confirm";
             this.Btn_ConfirmOTP.UseVisualStyleBackColor = false;
+            this.Btn_ConfirmOTP.Click += new System.EventHandler(this.Btn_ConfirmOTP_Click);
             // 
             // Box_OTP
             // 
             this.Box_OTP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Box_OTP.Font = new System.Drawing.Font("Bahnschrift", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Box_OTP.Location = new System.Drawing.Point(211, 247);
+            this.Box_OTP.MaxLength = 5;
             this.Box_OTP.Name = "Box_OTP";
             this.Box_OTP.PasswordChar = '*';
             this.Box_OTP.Size = new System.Drawing.Size(231, 35);
@@ -362,6 +371,35 @@
             this.box_hiddenEmail.Size = new System.Drawing.Size(100, 22);
             this.box_hiddenEmail.TabIndex = 27;
             this.box_hiddenEmail.Visible = false;
+            // 
+            // box_hiddenOTP
+            // 
+            this.box_hiddenOTP.Location = new System.Drawing.Point(65, 41);
+            this.box_hiddenOTP.Name = "box_hiddenOTP";
+            this.box_hiddenOTP.ReadOnly = true;
+            this.box_hiddenOTP.Size = new System.Drawing.Size(100, 22);
+            this.box_hiddenOTP.TabIndex = 28;
+            this.box_hiddenOTP.Visible = false;
+            // 
+            // Label_LoginError
+            // 
+            this.Label_LoginError.AutoSize = true;
+            this.Label_LoginError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_LoginError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Label_LoginError.Location = new System.Drawing.Point(140, 296);
+            this.Label_LoginError.Name = "Label_LoginError";
+            this.Label_LoginError.Size = new System.Drawing.Size(0, 20);
+            this.Label_LoginError.TabIndex = 7;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(195, 93);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(287, 46);
+            this.label9.TabIndex = 29;
+            this.label9.Text = "Please verify your email using \r\nOne Time Password (OTP) sent";
             // 
             // InFlow
             // 
@@ -416,6 +454,9 @@
         public System.Windows.Forms.TextBox box_firstname;
         public System.Windows.Forms.ErrorProvider ep;
         public System.Windows.Forms.TextBox box_hiddenEmail;
+        public System.Windows.Forms.TextBox box_hiddenOTP;
+        private System.Windows.Forms.Label Label_LoginError;
+        private System.Windows.Forms.Label label9;
     }
 }
 

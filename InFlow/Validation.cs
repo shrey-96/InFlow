@@ -115,5 +115,26 @@ namespace InFlow
                 MessageBox.Show("Error: " + ex);
             }
         }
+
+        public string validatePasswordCriteria(string password)
+        {
+            string msg = "";
+
+            // check if password meets the minimum length criteria
+            if(password.Length < 8)
+            {
+                msg = "Password must be at least 8 characters long.";
+                return msg;
+            }
+
+            // check if password contains both alphabets and numbers, and nothing else
+            Regex r = new Regex("^[a-zA-Z0-9]*$");
+            if (r.IsMatch(password) == false)
+            {
+                msg = "password must contain both alphabets AND numbers only";               
+            }
+
+            return msg;
+        }
     }
 }
