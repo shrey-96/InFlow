@@ -119,8 +119,6 @@ namespace InFlow
                 success = db.AddNewUser(username, password, firstname, lastname, phone, email);
                 if (success == false)
                     MessageBox.Show("Error while adding patient. Try again.");
-                else                
-                    ui.box_hiddenEmail.Text = email;
             }
 
 
@@ -140,10 +138,6 @@ namespace InFlow
             return exist;
         }
 
-        public void verified(string email)
-        {
-            string query = "update userinfo set verified = 1 where email = '" + email + "'";
-            db.SetData(query);
-        }
+     
     }
 }

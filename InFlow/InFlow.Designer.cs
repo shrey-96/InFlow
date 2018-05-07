@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.Panel_Login = new System.Windows.Forms.Panel();
+            this.Label_LoginError = new System.Windows.Forms.Label();
             this.btn_signup = new System.Windows.Forms.Button();
             this.btn_login = new System.Windows.Forms.Button();
             this.box_password = new System.Windows.Forms.TextBox();
@@ -51,19 +52,9 @@
             this.box_firstname = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.Panel_OTP = new System.Windows.Forms.Panel();
-            this.Btn_ConfirmOTP = new System.Windows.Forms.Button();
-            this.Box_OTP = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.Label_ResendOTP = new System.Windows.Forms.Label();
-            this.box_hiddenEmail = new System.Windows.Forms.TextBox();
-            this.box_hiddenOTP = new System.Windows.Forms.TextBox();
-            this.Label_LoginError = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.Panel_Login.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ep)).BeginInit();
             this.Panel_Signup.SuspendLayout();
-            this.Panel_OTP.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel_Login
@@ -81,6 +72,16 @@
             this.Panel_Login.Name = "Panel_Login";
             this.Panel_Login.Size = new System.Drawing.Size(669, 700);
             this.Panel_Login.TabIndex = 0;
+            // 
+            // Label_LoginError
+            // 
+            this.Label_LoginError.AutoSize = true;
+            this.Label_LoginError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_LoginError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Label_LoginError.Location = new System.Drawing.Point(140, 296);
+            this.Label_LoginError.Name = "Label_LoginError";
+            this.Label_LoginError.Size = new System.Drawing.Size(0, 20);
+            this.Label_LoginError.TabIndex = 7;
             // 
             // btn_signup
             // 
@@ -301,114 +302,13 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "FIRST NAME :";
             // 
-            // Panel_OTP
-            // 
-            this.Panel_OTP.Controls.Add(this.label9);
-            this.Panel_OTP.Controls.Add(this.box_hiddenOTP);
-            this.Panel_OTP.Controls.Add(this.box_hiddenEmail);
-            this.Panel_OTP.Controls.Add(this.Label_ResendOTP);
-            this.Panel_OTP.Controls.Add(this.Btn_ConfirmOTP);
-            this.Panel_OTP.Controls.Add(this.Box_OTP);
-            this.Panel_OTP.Controls.Add(this.label14);
-            this.Panel_OTP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Panel_OTP.Location = new System.Drawing.Point(0, 0);
-            this.Panel_OTP.Name = "Panel_OTP";
-            this.Panel_OTP.Size = new System.Drawing.Size(669, 700);
-            this.Panel_OTP.TabIndex = 21;
-            // 
-            // Btn_ConfirmOTP
-            // 
-            this.Btn_ConfirmOTP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.Btn_ConfirmOTP.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_ConfirmOTP.Location = new System.Drawing.Point(187, 362);
-            this.Btn_ConfirmOTP.Name = "Btn_ConfirmOTP";
-            this.Btn_ConfirmOTP.Size = new System.Drawing.Size(283, 49);
-            this.Btn_ConfirmOTP.TabIndex = 25;
-            this.Btn_ConfirmOTP.Text = "Confirm";
-            this.Btn_ConfirmOTP.UseVisualStyleBackColor = false;
-            this.Btn_ConfirmOTP.Click += new System.EventHandler(this.Btn_ConfirmOTP_Click);
-            // 
-            // Box_OTP
-            // 
-            this.Box_OTP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Box_OTP.Font = new System.Drawing.Font("Bahnschrift", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Box_OTP.Location = new System.Drawing.Point(211, 247);
-            this.Box_OTP.MaxLength = 5;
-            this.Box_OTP.Name = "Box_OTP";
-            this.Box_OTP.PasswordChar = '*';
-            this.Box_OTP.Size = new System.Drawing.Size(231, 35);
-            this.Box_OTP.TabIndex = 23;
-            this.Box_OTP.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(249, 206);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(160, 23);
-            this.label14.TabIndex = 21;
-            this.label14.Text = "ENTER YOUR OTP";
-            // 
-            // Label_ResendOTP
-            // 
-            this.Label_ResendOTP.AutoSize = true;
-            this.Label_ResendOTP.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Label_ResendOTP.Font = new System.Drawing.Font("Bell MT", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label_ResendOTP.ForeColor = System.Drawing.Color.Blue;
-            this.Label_ResendOTP.Location = new System.Drawing.Point(183, 300);
-            this.Label_ResendOTP.Name = "Label_ResendOTP";
-            this.Label_ResendOTP.Size = new System.Drawing.Size(291, 20);
-            this.Label_ResendOTP.TabIndex = 26;
-            this.Label_ResendOTP.Text = "Didn\'t receive OTP? Click here to resend";
-            this.Label_ResendOTP.Click += new System.EventHandler(this.Label_ResendOTP_Click);
-            // 
-            // box_hiddenEmail
-            // 
-            this.box_hiddenEmail.Location = new System.Drawing.Point(484, 41);
-            this.box_hiddenEmail.Name = "box_hiddenEmail";
-            this.box_hiddenEmail.ReadOnly = true;
-            this.box_hiddenEmail.Size = new System.Drawing.Size(100, 22);
-            this.box_hiddenEmail.TabIndex = 27;
-            this.box_hiddenEmail.Visible = false;
-            // 
-            // box_hiddenOTP
-            // 
-            this.box_hiddenOTP.Location = new System.Drawing.Point(65, 41);
-            this.box_hiddenOTP.Name = "box_hiddenOTP";
-            this.box_hiddenOTP.ReadOnly = true;
-            this.box_hiddenOTP.Size = new System.Drawing.Size(100, 22);
-            this.box_hiddenOTP.TabIndex = 28;
-            this.box_hiddenOTP.Visible = false;
-            // 
-            // Label_LoginError
-            // 
-            this.Label_LoginError.AutoSize = true;
-            this.Label_LoginError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label_LoginError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Label_LoginError.Location = new System.Drawing.Point(140, 296);
-            this.Label_LoginError.Name = "Label_LoginError";
-            this.Label_LoginError.Size = new System.Drawing.Size(0, 20);
-            this.Label_LoginError.TabIndex = 7;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(195, 93);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(287, 46);
-            this.label9.TabIndex = 29;
-            this.label9.Text = "Please verify your email using \r\nOne Time Password (OTP) sent";
-            // 
             // InFlow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(669, 700);
-            this.Controls.Add(this.Panel_OTP);
-            this.Controls.Add(this.Panel_Signup);
             this.Controls.Add(this.Panel_Login);
+            this.Controls.Add(this.Panel_Signup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "InFlow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -418,8 +318,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ep)).EndInit();
             this.Panel_Signup.ResumeLayout(false);
             this.Panel_Signup.PerformLayout();
-            this.Panel_OTP.ResumeLayout(false);
-            this.Panel_OTP.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -441,11 +339,6 @@
         private System.Windows.Forms.Button Btn_RegisterUser;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel Panel_OTP;
-        private System.Windows.Forms.Button Btn_ConfirmOTP;
-        private System.Windows.Forms.TextBox Box_OTP;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label Label_ResendOTP;
         public System.Windows.Forms.TextBox box_selectusername;
         public System.Windows.Forms.TextBox box_selectpassword;
         public System.Windows.Forms.TextBox box_emailid;
@@ -453,10 +346,7 @@
         public System.Windows.Forms.TextBox box_lastname;
         public System.Windows.Forms.TextBox box_firstname;
         public System.Windows.Forms.ErrorProvider ep;
-        public System.Windows.Forms.TextBox box_hiddenEmail;
-        public System.Windows.Forms.TextBox box_hiddenOTP;
         private System.Windows.Forms.Label Label_LoginError;
-        private System.Windows.Forms.Label label9;
     }
 }
 
