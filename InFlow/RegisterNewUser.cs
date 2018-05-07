@@ -4,16 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataAccess;
 
 namespace InFlow
 {
     public class RegisterNewUser
     {
-        DataAccess db;
+        DataAccess.DataAccess db;
         InFlow ui;
         Validation validation;
 
-        public RegisterNewUser(InFlow ui_ ,DataAccess db_, Validation validation_)
+        public RegisterNewUser(InFlow ui_ ,DataAccess.DataAccess db_, Validation validation_)
         {
             db = db_;
             ui = ui_;

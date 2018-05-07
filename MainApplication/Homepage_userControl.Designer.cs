@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Homepage_userControl));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel_homepage = new System.Windows.Forms.Panel();
             this.label_reorderStock = new System.Windows.Forms.Label();
             this.label_adjustStock = new System.Windows.Forms.Label();
             this.label_currentStock = new System.Windows.Forms.Label();
@@ -60,7 +60,8 @@
             this.label_salesList = new System.Windows.Forms.Label();
             this.label_newCustomer = new System.Windows.Forms.Label();
             this.label_customerList = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.panel_newVendor = new System.Windows.Forms.Panel();
+            this.panel_homepage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -73,41 +74,41 @@
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // panel_homepage
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel1.Controls.Add(this.label_customerList);
-            this.panel1.Controls.Add(this.label_newCustomer);
-            this.panel1.Controls.Add(this.label_salesList);
-            this.panel1.Controls.Add(this.label_newSales);
-            this.panel1.Controls.Add(this.label_reorderStock);
-            this.panel1.Controls.Add(this.label_adjustStock);
-            this.panel1.Controls.Add(this.label_currentStock);
-            this.panel1.Controls.Add(this.label_newProduct);
-            this.panel1.Controls.Add(this.label_workOrder);
-            this.panel1.Controls.Add(this.Label_NewOrder);
-            this.panel1.Controls.Add(this.label_orderList);
-            this.panel1.Controls.Add(this.label_NewVendor);
-            this.panel1.Controls.Add(this.label_vendorlist);
-            this.panel1.Controls.Add(this.pictureBox9);
-            this.panel1.Controls.Add(this.pictureBox8);
-            this.panel1.Controls.Add(this.pictureBox7);
-            this.panel1.Controls.Add(this.pictureBox6);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.pictureBox5);
-            this.panel1.Controls.Add(this.pictureBox4);
-            this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1056, 722);
-            this.panel1.TabIndex = 0;
+            this.panel_homepage.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel_homepage.Controls.Add(this.label_customerList);
+            this.panel_homepage.Controls.Add(this.label_newCustomer);
+            this.panel_homepage.Controls.Add(this.label_salesList);
+            this.panel_homepage.Controls.Add(this.label_newSales);
+            this.panel_homepage.Controls.Add(this.label_reorderStock);
+            this.panel_homepage.Controls.Add(this.label_adjustStock);
+            this.panel_homepage.Controls.Add(this.label_currentStock);
+            this.panel_homepage.Controls.Add(this.label_newProduct);
+            this.panel_homepage.Controls.Add(this.label_workOrder);
+            this.panel_homepage.Controls.Add(this.Label_NewOrder);
+            this.panel_homepage.Controls.Add(this.label_orderList);
+            this.panel_homepage.Controls.Add(this.label_NewVendor);
+            this.panel_homepage.Controls.Add(this.label_vendorlist);
+            this.panel_homepage.Controls.Add(this.pictureBox9);
+            this.panel_homepage.Controls.Add(this.pictureBox8);
+            this.panel_homepage.Controls.Add(this.pictureBox7);
+            this.panel_homepage.Controls.Add(this.pictureBox6);
+            this.panel_homepage.Controls.Add(this.label6);
+            this.panel_homepage.Controls.Add(this.label5);
+            this.panel_homepage.Controls.Add(this.label4);
+            this.panel_homepage.Controls.Add(this.label3);
+            this.panel_homepage.Controls.Add(this.label2);
+            this.panel_homepage.Controls.Add(this.pictureBox5);
+            this.panel_homepage.Controls.Add(this.pictureBox4);
+            this.panel_homepage.Controls.Add(this.pictureBox3);
+            this.panel_homepage.Controls.Add(this.pictureBox2);
+            this.panel_homepage.Controls.Add(this.pictureBox1);
+            this.panel_homepage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_homepage.Location = new System.Drawing.Point(0, 0);
+            this.panel_homepage.Name = "panel_homepage";
+            this.panel_homepage.Size = new System.Drawing.Size(1056, 722);
+            this.panel_homepage.TabIndex = 0;
             // 
             // label_reorderStock
             // 
@@ -501,16 +502,25 @@
             this.label_customerList.Text = "       Customer List\r\nView/Update customers";
             this.label_customerList.Visible = false;
             // 
+            // panel_newVendor
+            // 
+            this.panel_newVendor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_newVendor.Location = new System.Drawing.Point(0, 0);
+            this.panel_newVendor.Name = "panel_newVendor";
+            this.panel_newVendor.Size = new System.Drawing.Size(1056, 722);
+            this.panel_newVendor.TabIndex = 27;
+            // 
             // Homepage_userControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel_homepage);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel_newVendor);
             this.Name = "Homepage_userControl";
             this.Size = new System.Drawing.Size(1056, 722);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panel_homepage.ResumeLayout(false);
+            this.panel_homepage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
@@ -528,7 +538,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel_homepage;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
@@ -559,5 +569,6 @@
         private System.Windows.Forms.Label label_newCustomer;
         private System.Windows.Forms.Label label_salesList;
         private System.Windows.Forms.Label label_newSales;
+        private System.Windows.Forms.Panel panel_newVendor;
     }
 }

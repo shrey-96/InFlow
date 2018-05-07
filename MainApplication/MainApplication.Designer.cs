@@ -39,7 +39,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_logout = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.Panel_SideMenu.SuspendLayout();
@@ -53,7 +53,7 @@
             this.Panel_SideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             this.Panel_SideMenu.Controls.Add(this.button6);
             this.Panel_SideMenu.Controls.Add(this.button5);
-            this.Panel_SideMenu.Controls.Add(this.button4);
+            this.Panel_SideMenu.Controls.Add(this.btn_logout);
             this.Panel_SideMenu.Controls.Add(this.button3);
             this.Panel_SideMenu.Controls.Add(this.button2);
             this.Panel_SideMenu.Controls.Add(this.button1);
@@ -160,20 +160,20 @@
             this.button3.Text = "Close";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btn_logout
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Beige;
-            this.button4.Location = new System.Drawing.Point(6, 565);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(206, 53);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "Logout";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btn_logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btn_logout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_logout.FlatAppearance.BorderSize = 0;
+            this.btn_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_logout.ForeColor = System.Drawing.Color.Beige;
+            this.btn_logout.Location = new System.Drawing.Point(6, 565);
+            this.btn_logout.Name = "btn_logout";
+            this.btn_logout.Size = new System.Drawing.Size(206, 53);
+            this.btn_logout.TabIndex = 1;
+            this.btn_logout.Text = "Logout";
+            this.btn_logout.UseVisualStyleBackColor = false;
             // 
             // button5
             // 
@@ -231,7 +231,7 @@
         private System.Windows.Forms.TabControl Tabs;
         private System.Windows.Forms.Button Btn_NewTab;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_logout;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;

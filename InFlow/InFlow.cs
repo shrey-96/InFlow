@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MainApplication;
+using DataAccess;
+using System.Configuration;
 
 namespace InFlow
 {
     public partial class InFlow : Form
     {
-        DataAccess db;
+        DataAccess.DataAccess db;
         RegisterNewUser NewUser;
         Validation validation;
 
@@ -23,8 +25,10 @@ namespace InFlow
             box_username.Focus();
             Panel_Login.BringToFront();
 
+            string constring = ConfigurationManager.ConnectionStrings["DB_ConnectionString"].ConnectionString;
+
             // instantiate all the classes
-            db = new DataAccess();
+            db = new DataAccess.DataAccess(constring);
             validation = new Validation(this);
             NewUser = new RegisterNewUser(this, db, validation);
         }
@@ -52,6 +56,7 @@ namespace InFlow
 
 
             MessageBox.Show("Login Successful", "Success");
+            ClearAllFields();
             this.Hide();
             var form2 = new MainApplication.MainApplication(un);
             form2.Closed += (s, args) => this.Close();
@@ -72,7 +77,9 @@ namespace InFlow
             if (NewUser.SignupNewUser())
             {
                 MessageBox.Show("Congratulations, you are successfully registered!", "Success");
+                ClearAllFields();
                 Panel_Login.BringToFront();
+                
             }
         }
 

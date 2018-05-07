@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
 
-namespace InFlow
+namespace DataAccess
 {
     public class DataAccess
     {
@@ -15,10 +15,8 @@ namespace InFlow
         private SqlCommand cmd;             // command object
 
         // constructor
-        public DataAccess()
-        {
-            string constring = ConfigurationManager.ConnectionStrings["DB_ConnectionString"].ConnectionString;
-
+        public DataAccess(string constring)
+        { 
             // establish connection
             InitilizeConnection(constring);
         }
@@ -163,7 +161,7 @@ namespace InFlow
         {
 
 
-            string Stored_Procedure = "RegisterUser";  
+            string Stored_Procedure = "RegisterUser";
 
             try
             {
@@ -184,7 +182,7 @@ namespace InFlow
             }
             catch (Exception ex)
             {
-                
+
                 Logging.NewLog("AddNewUser", "Failed to insert user into database. Fatal Error. \n\n" + ex);
                 return false;
             }

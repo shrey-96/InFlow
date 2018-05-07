@@ -30,9 +30,7 @@ namespace MainApplication
             // select the tab to be able to add HomePage controls
             Tabs.SelectTab(++TabCount);            
             Tabs.SelectedTab.Controls.Add(new Homepage_userControl());  // add controls
-         //   Tabs.b
         }
 
-       
     }
 }
