@@ -116,7 +116,6 @@
             this.box_password.PasswordChar = '*';
             this.box_password.Size = new System.Drawing.Size(231, 30);
             this.box_password.TabIndex = 4;
-            this.box_password.Text = "nuttertools";
             // 
             // box_username
             // 
@@ -126,7 +125,6 @@
             this.box_username.Name = "box_username";
             this.box_username.Size = new System.Drawing.Size(231, 29);
             this.box_username.TabIndex = 3;
-            this.box_username.Text = "shrey";
             // 
             // label2
             // 

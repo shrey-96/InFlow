@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Data;
+using System.Windows.Forms;
 
 namespace DataAccess
 {
@@ -155,6 +156,42 @@ namespace DataAccess
             return vs;
         }
 
+
+        // add new vendor
+        public bool AddNewVendor (string vendorname, string balance, string vendoraddress, string contactname, string phone,
+            string fax, string email, string website, string paymentmethod, string tax, string discount)
+        {
+            string Stored_Procedure = "NewVendor";
+
+            try
+            {
+                using (SqlCommand TempCmd = new SqlCommand(Stored_Procedure, con))
+                {
+                    TempCmd.CommandType = CommandType.StoredProcedure;
+
+                    TempCmd.Parameters.Add("@vendorname", SqlDbType.VarChar).Value = vendorname;
+                    TempCmd.Parameters.Add("@balance", SqlDbType.Int).Value = balance;
+                    TempCmd.Parameters.Add("@vendorAddress", SqlDbType.VarChar).Value = vendoraddress;
+                    TempCmd.Parameters.Add("@contactName", SqlDbType.VarChar).Value = contactname;
+                    TempCmd.Parameters.Add("@phone", SqlDbType.VarChar).Value = phone;
+                    TempCmd.Parameters.Add("@fax", SqlDbType.VarChar).Value = fax;
+                    TempCmd.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
+                    TempCmd.Parameters.Add("@website", SqlDbType.VarChar).Value = website;
+                    TempCmd.Parameters.Add("@paymentmethod", SqlDbType.VarChar).Value = paymentmethod;
+                    TempCmd.Parameters.Add("@tax", SqlDbType.Int).Value = tax;
+                    TempCmd.Parameters.Add("@discount", SqlDbType.Int).Value = discount;
+
+                    TempCmd.ExecuteNonQuery();
+                }
+            }
+            catch(Exception ex)
+            {
+               MessageBox.Show("Fatal Error while adding vendor to the database\n" + ex, "Error");
+               return false;
+            }
+
+            return true;
+        }
 
         // sample stored procedure method
         public bool AddNewUser(string username, string pass, string firstname, string lastname, string phone, string email)

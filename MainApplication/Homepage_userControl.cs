@@ -12,12 +12,21 @@ namespace MainApplication
 {
     public partial class Homepage_userControl : UserControl
     {
-        public Homepage_userControl()
+        Vendor vendor;
+        DataAccess.DataAccess db;
+
+        public Homepage_userControl(DataAccess.DataAccess db_)
         {
             InitializeComponent();
+            panel_homepage.BringToFront();
+            db = db_;
+            vendor = new Vendor(this, db);
         }
-        
 
+
+        //____________________________________________________________________________________________________________
+        //_________________________HOVER DISPLAY HIDE FUNCTIONALITY___________________________________________________
+        //____________________________________________________________________________________________________________
 
         // vendor options
         private void DisplayVendorOption(object sender, EventArgs e)
@@ -82,6 +91,25 @@ namespace MainApplication
         private void DisplayInventoryOptions(object sender, EventArgs e)
         {
             HoverHandling(null, null, true);
+        }
+
+        //____________________________________________________________________________________________________________
+        //____________________________________________________________________________________________________________
+        //____________________________________________________________________________________________________________
+
+
+        // add new vendor click on home page
+        private void Event_AddNewVendor(object sender, EventArgs e)
+        {
+            panel_newVendor.BringToFront();
+        }
+
+        // Save/Add vendor click
+        private void Btn_SaveVendor_Click(object sender, EventArgs e)
+        {
+            // new vendor method call
+            vendor.NewVendor();
+
         }
     }
 }
