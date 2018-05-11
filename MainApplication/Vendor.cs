@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -80,15 +82,99 @@ namespace MainApplication
                     // call store procedure to add venodr
                     db.AddNewVendor(vendorname, balance, address, name, phone, fax, email, website,
                         paymentmethod, tax, discount);
+
+
                 }
                 catch(Exception ex)
                 {
                     MessageBox.Show("" + ex, "error");
+                    return;
                 }
+
+                MessageBox.Show("Vendor Added", "Success");
             }
 
 
         }
 
+        // display vendor list
+        public bool VendorList()
+        {
+            bool success = true;
+            DataTable datatable = new DataTable();
+
+            try
+            {
+                SqlDataAdapter adapter = db.GetDataAdapter("select * from vendor");
+                adapter.Fill(datatable);                
+                ui.DG_Vendor.DataSource = datatable;
+                ui.DG_Vendor.AutoResizeRows();
+                ui.DG_Vendor.AutoResizeColumns();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error while filling vendor list in the grid" + ex, "Error");
+                success = false;
+            }
+
+
+            return success;
+        }
+
+        public void NewVendorList()
+        {
+            MessageBox.Show("count : " + ui.DG_Vendor.RowCount + "  column: " + ui.DG_Vendor.ColumnCount);
+           for(int i = 0; i < ui.DG_Vendor.RowCount; i++)
+            {
+
+            }
+        }
+
+        public string select(string column)
+        {
+            string select = "select " + column + " from vendor";
+            return select;
+        }
+
+        // update vendor list
+        public bool UpdateVendorList()
+        {
+            bool success = true;
+            ui.DG_Vendor.EndEdit(); //very important step
+
+            SqlDataAdapter da =  db.GetDataAdapter("select * from vendors");
+            DataTable data;
+            if((data = GetDataGridValue(ui.DG_Vendor)) == null)
+            {
+                success = false;
+            }
+
+            
+            try
+            {
+                if (success)
+                {
+                    
+                    da.UpdateCommand = new SqlCommandBuilder(da).GetUpdateCommand();
+                    da.Update(data);
+                    MessageBox.Show("Successfully saved", "Success");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error while saving vendor" + ex, "Error");
+                success = false;
+            }
+
+            return success;
+        }
+
+        // get values from datagrid and store in datatables
+        private DataTable GetDataGridValue(DataGridView grid)
+        {
+            DataTable myDT;
+            myDT = (DataTable)grid.DataSource;
+            return myDT;
+        }
     }
 }

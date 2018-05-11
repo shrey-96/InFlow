@@ -13,7 +13,10 @@ namespace MainApplication
     public partial class Homepage_userControl : UserControl
     {
         Vendor vendor;
+        Customer customer;
         DataAccess.DataAccess db;
+
+
 
         public Homepage_userControl(DataAccess.DataAccess db_)
         {
@@ -21,6 +24,7 @@ namespace MainApplication
             panel_homepage.BringToFront();
             db = db_;
             vendor = new Vendor(this, db);
+            customer = new Customer(this, db);
         }
 
 
@@ -109,7 +113,87 @@ namespace MainApplication
         {
             // new vendor method call
             vendor.NewVendor();
+           
+            
+        }
 
+        // list of vendors
+        private void VendorsListClick(object sender, EventArgs e)
+        {
+            
+            vendor.VendorList();
+            DG_Vendor.Columns[0].ReadOnly = true;
+            Panel_VendorList.BringToFront();
+        }
+
+        // go to home even, clear all the fields after switching view
+        private void Btn_GoToHome_Click(object sender, EventArgs e)
+        {
+            panel_homepage.BringToFront();
+            ClearAllFields();
+        }
+
+        // clear all the fields
+        public void ClearAllFields()
+        {
+            // clear vendor fields
+            box_vendorname.Clear();
+            box_balance.Text = "0";
+
+            box_address.Clear();
+            box_contactName.Clear();
+            box_phone.Clear();
+            box_email.Clear();
+            box_website.Clear();
+            box_fax.Clear();
+            box_paymentmethod.SelectedIndex = 0;
+            box_tax.Text = "0";
+            box_discount.Text = "0";
+
+
+            // clear all customer fields
+            box_cname.Clear();
+            box_cbalance.Text = "0";
+
+            box_caddress.Clear();
+            box_ccontactname.Clear();
+            box_cphone.Clear();
+            box_cemail.Clear();
+            box_cwebsite.Clear();
+            box_cfax.Clear();
+            box_cpayment.SelectedIndex = 0;
+            box_ctax.Text = "0";
+            box_cdiscount.Text = "0";
+
+
+        }
+
+        // save new updates from the vendor
+        private void Btn_SaveVendorList_Click(object sender, EventArgs e)
+        {
+            vendor.UpdateVendorList();
+            
+            //vendor.NewVendorList();
+        }
+
+        // HOMEPAGE: New Customer Click
+        private void label_newCustomer_Click(object sender, EventArgs e)
+        {
+            Panel_Customer.BringToFront();            
+        }
+
+        // CUSTOMER: Add customer click
+        private void btn_AddCustomer_Click(object sender, EventArgs e)
+        {
+            customer.NewCustomer();
+        }
+
+        // HOMEPAGE: View Customer
+        private void label_customerList_Click(object sender, EventArgs e)
+        {
+            customer.CustomerList();
+            DG_Customer.Columns[0].ReadOnly = true;
+            Panel_ViewCustomer.BringToFront();
         }
     }
 }

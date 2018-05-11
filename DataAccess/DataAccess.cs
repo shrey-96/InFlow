@@ -89,6 +89,25 @@ namespace DataAccess
             return reader;
         }
 
+        // get sql data adapter
+        public SqlDataAdapter GetDataAdapter(string query)
+        {
+            SqlDataAdapter da; 
+
+            try
+            {
+                da = new SqlDataAdapter(query, con);
+            }
+            catch (Exception ex)
+            {
+                Logging.NewLog("Error while executing data adapter.\n\n" + ex, "SQL Data Adaptor Error");
+                return null;
+            }
+
+            return da;
+        }
+
+
 
         // update or insert data into the database
         public void SetData(string query)
@@ -193,6 +212,58 @@ namespace DataAccess
             return true;
         }
 
+        // add new customer
+        public bool AddNewCustomer(int customerid, string customername, string balance, string customeraddress, string contactname, string phone,
+            string fax, string email, string website, string paymentmethod, string tax, string discount)
+        {
+            string Stored_Procedure = "NewCustomer";
+
+            try
+            {
+                using (SqlCommand TempCmd = new SqlCommand(Stored_Procedure, con))
+                {
+                    TempCmd.CommandType = CommandType.StoredProcedure;
+
+                    TempCmd.Parameters.Add("@customerid", SqlDbType.Int).Value = customerid;
+                    TempCmd.Parameters.Add("@customername", SqlDbType.VarChar).Value = customername;
+                    TempCmd.Parameters.Add("@balance", SqlDbType.Int).Value = balance;
+                    TempCmd.Parameters.Add("@customeraddress", SqlDbType.VarChar).Value = customeraddress;
+                    TempCmd.Parameters.Add("@contactname", SqlDbType.VarChar).Value = contactname;
+                    TempCmd.Parameters.Add("@phone", SqlDbType.VarChar).Value = phone;
+                    TempCmd.Parameters.Add("@fax", SqlDbType.VarChar).Value = fax;
+                    TempCmd.Parameters.Add("@email", SqlDbType.VarChar).Value = email;
+                    TempCmd.Parameters.Add("@website", SqlDbType.VarChar).Value = website;
+                    TempCmd.Parameters.Add("@paymentmethod", SqlDbType.VarChar).Value = paymentmethod;
+                    TempCmd.Parameters.Add("@tax", SqlDbType.Int).Value = tax;
+                    TempCmd.Parameters.Add("@discount", SqlDbType.Int).Value = discount;
+
+                    TempCmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fatal Error while adding customer to the database\n" + ex, "Error");
+                return false;
+            }
+
+            return true;
+        }
+
+
+        public int GetID(string column)
+        {
+            int id = 0;
+            string query = "select " + column + " from customer";
+            string result = "";
+
+            result = GetColumnData(query, column);
+            if (int.TryParse(result, out id) == false)
+                id = 100;
+
+            id++;
+            return id;
+        }
+
         // sample stored procedure method
         public bool AddNewUser(string username, string pass, string firstname, string lastname, string phone, string email)
         {
@@ -228,6 +299,7 @@ namespace DataAccess
         }
 
 
+      
 
         /************************************************************************************|
         |    Name:           CloseConnection()                                               |

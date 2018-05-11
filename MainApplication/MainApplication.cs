@@ -49,6 +49,5 @@ namespace MainApplication
             //  db = new DataAccess.DataAccess(connectionstring);
             Tabs.SelectedTab.Controls.Add(new Homepage_userControl(db));  // add controls
         }
-
     }
 }
